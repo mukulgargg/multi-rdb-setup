@@ -1,6 +1,5 @@
 package com.multirdbsetup.datatransfer.primaryRepo;
 
-
 import com.multirdbsetup.datatransfer.enums.JobType;
 import com.multirdbsetup.datatransfer.primaryDataSourceEntity.JobSchedule;
 import jakarta.persistence.PersistenceContext;
@@ -15,6 +14,6 @@ import org.springframework.stereotype.Repository;
 @Repository(value = "jobScheduleRepo")
 @PersistenceContext(unitName = "primaryEntityManager")
 public interface JobScheduleRepo extends JpaRepository<JobSchedule, Long> {
-
-    JobSchedule findFirstByJobTypeOrderByLastExecutionCompleteDesc(JobType jobType);
+	
+	JobSchedule findFirstByJobTypeOrderByLastExecutionCompleteDesc(JobType jobType);
 }

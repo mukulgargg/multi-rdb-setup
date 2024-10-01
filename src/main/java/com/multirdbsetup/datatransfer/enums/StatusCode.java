@@ -7,7 +7,7 @@ public enum StatusCode {
 	
 	SUCCESS("SUCCESS"), FAILURE("FAILURE");
 	
-	private String value;
+	private final String value;
 	
 	StatusCode(String value) {
 		this.value = value;

@@ -17,6 +17,8 @@ import org.springframework.stereotype.Repository;
 public interface ApplicationSecondaryRepo extends JpaRepository<Application_secondary, String> {
 	
 	List<Application_secondary> findAllByIdAfter(Date date);
-	Application_secondary findFirstByCurrentStatusDetails (String currentStatusDetails);
+	
+	Application_secondary findFirstByCurrentStatusDetails(String currentStatusDetails);
+	
 	Application_secondary findById(Long id);
 }

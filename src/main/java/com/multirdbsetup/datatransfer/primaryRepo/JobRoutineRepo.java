@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface JobRoutineRepo extends JpaRepository<JobRoutine, String> {
-
+	
 	@Query(value = "select * from JOB_ROUTINE where JOB_TYPE = :jobType", nativeQuery = true)
 	JobRoutine findByJobType(@Param("jobType") String jobType);
 }

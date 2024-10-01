@@ -50,6 +50,7 @@ public class ThirdDataSourceConfig {
 		properties.setProperty("hibernate.show-sql", "true");
 		return properties;
 	}
+	
 	@Bean(name = "thirdEntityManagerFactoryBuilder")
 	public EntityManagerFactoryBuilder thirdEntityManagerFactoryBuilder() {
 		return new EntityManagerFactoryBuilder(new HibernateJpaVendorAdapter(), new HashMap<>(), null);

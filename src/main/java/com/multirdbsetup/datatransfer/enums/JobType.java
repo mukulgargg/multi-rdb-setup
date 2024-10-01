@@ -6,5 +6,5 @@ package com.multirdbsetup.datatransfer.enums;
  */
 
 public enum JobType {
- STANDARD, NAMED
+	STANDARD, NAMED
 }

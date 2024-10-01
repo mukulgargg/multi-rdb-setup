@@ -15,8 +15,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 @PersistenceContext(unitName = "secondaryEntityManager")
 public interface ApplicationDetailSecondaryRepo extends JpaRepository<ApplicationDetail_secondary, String> {
-
-    List<ApplicationDetail_secondary> findAllByCreatedDateAfter(Date createdDate);
-    
-    ApplicationDetail_secondary findAllByStudentId(Long id);
+	
+	List<ApplicationDetail_secondary> findAllByCreatedDateAfter(Date createdDate);
+	
+	ApplicationDetail_secondary findAllByStudentId(Long id);
 }

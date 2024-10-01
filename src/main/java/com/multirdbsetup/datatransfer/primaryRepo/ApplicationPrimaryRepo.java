@@ -1,6 +1,5 @@
 package com.multirdbsetup.datatransfer.primaryRepo;
 
-
 import com.multirdbsetup.datatransfer.primaryDataSourceEntity.Application_primary;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.data.jpa.repository.JpaRepository;
