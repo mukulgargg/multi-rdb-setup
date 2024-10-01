@@ -1,0 +1,116 @@
+spring:
+  profiles:
+    active: dev
+server:
+  port: 8080
+
+#dev
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    hikari:
+      primary:
+        jdbc-url: jdbc:oracle:thin:@localhost:1521/orclpd1
+        username: your_user_id
+        password: your_password
+        schema-name: SM_EMP
+        driver-class-name: oracle.jdbc.OracleDriver
+        connection-test-query: SELECT 1 FROM DUAL
+        minimum-idle: 2
+        maximum-pool-size: 5
+        hibernate:
+          dialect: org.hibernate.dialect.OracleDialect
+          hbm2ddl.auto: update
+      third:
+        jdbc-url: jdbc:sqlserver://localhost:1433;databaseName=your_db_name
+        username: your_user_id
+        password: your_password
+        schema-name: dbo
+        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        hibernate:
+          dialect: org.hibernate.dialect.SQLServerDialect
+      secondary:
+        jdbc-url: jdbc:sqlserver://localhost:1433;databaseName=your_db_name
+        username: your_user_id
+        password: your_password
+        schema-name: dbo
+        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        hibernate:
+          dialect: org.hibernate.dialect.SQLServerDialect
+
+
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type: TRACE
+
+
+#staging
+---
+
+spring:
+  config:
+    activate:
+      on-profile: staging
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    hikari:
+      minimum-idle: 2
+      maximum-pool-size: 5
+      primary:
+        jdbc-url: jdbc:oracle:thin:@<YOUR:IP:ADDRESS:HERE>:<PORT>/ORCLPD1
+        username: your_user_id
+        password: your_password
+        schema-name: SM_EMP
+        driver-class-name: oracle.jdbc.OracleDriver
+        connection-test-query: SELECT 1 FROM DUAL
+        ddl-auto: update
+        minimum-idle: 2
+        maximum-pool-size: 5
+        hibernate:
+          dialect: org.hibernate.dialect.OracleDialect
+      secondary:
+        jdbc-url: jdbc:sqlserver://<YOUR:IP:ADDRESS:HERE>:<PORT>;databaseName=your_db_name
+        username: your_user_id
+        password: your_password
+        schema-name: dbo
+        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        minimum-idle: 2
+        maximum-pool-size: 5
+        hibernate:
+          dialect: org.hibernate.dialect.SQLServerDialect
+      third:
+        jdbc-url: jdbc:sqlserver://<YOUR:IP:ADDRESS:HERE>:<PORT>;databaseName=your_db_name
+        username: your_user_id
+        password: your_password
+        schema-name: dbo
+        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        minimum-idle: 2
+        maximum-pool-size: 5
+        hibernate:
+          dialect: org.hibernate.dialect.SQLServerDialect
+
+
+
+
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        SQL: DEBUG
+#        type: TRACE
